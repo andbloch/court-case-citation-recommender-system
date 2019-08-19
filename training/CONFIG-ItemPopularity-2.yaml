@@ -1,0 +1,83 @@
+#---Device---
+DEVICE: 'cuda'         # None: autodetects GPU | ('cpu'->CPU, 'cuda'->GPU)
+NUM_GPUS: 1           # None: use all | number of GPUs to use (if device is 'cuda')
+USED_GPU_NUMBERS: '2' # pre-define comma-separated list of GPUs (overwrite)
+
+#---Summaries---
+RUN_PREFIX:                     # optional run prefix
+RUN_COMMENT:                    # optional run comment
+SUMMARIZE_HISTOGRAMS: False     # activate only if needed (speed, memory)
+
+#---Batching---
+# NUM_WORKERS = number of CPUs batching to DEVICE
+# Set this number to 0 to run the batching in the same process if your data
+# is already on the GPU
+NUM_WORKERS: 16
+
+#---Dataset---
+# ---'CourtCases'---
+# 'default',
+DATA_OWNER: 'CourtCases'
+DATA_NAME: 'default'
+
+#---Training---
+NUM_EPOCHS: 1
+TRAIN_BATCH_SIZE: 32768
+
+#---Validation---
+DO_VALIDATION: False
+VALID_BATCH_SIZE: 32768
+VALIDATE_AND_CHECKPOINT_EVERY: 3
+
+#---Evaluation Metrics---
+HIT_RATE_K: 1
+HIT_RATE_NUM_NEGATIVE_EXAMPLES: 10
+
+#---Progress Printing---
+PRINT_TRAINING_PROGRESS_EVERY: 1
+PRINT_NUM_GRADIENT_STEPS_EVERY: 1
+
+#---Model---
+#---'NET_NAME'---
+# 'ItemPopularity'
+# 'NCF', 'GMF','MLP',
+NET_NAME: 'ItemPopularity'
+NUM_FACTORS: 20
+NUM_LAYERS: 3
+#---Word Embedding (pre-trained glove)---
+# '50', '100', '200', '300'
+WORD_EMBEDDING_DIM: 50
+#---HRNN Document Embedding---
+GMF_SENT_EMBED_NUM_LAYERS: 2
+GMF_SENT_EMBED_DIM: 30
+GMF_DOC_EMBED_NUM_LAYERS: 2
+MLP_SENT_EMBED_NUM_LAYERS: 2
+MLP_SENT_EMBED_DIM: 50
+MLP_DOC_EMBED_NUM_LAYERS: 2
+
+#---Regularization---
+USE_REGULARIZATION: False
+REGULARIZATION_LAMBDA: 0.00000001
+
+#---Optimizer---
+#---'Adam'---
+OPTIMIZER_NAME: 'Adam' # 'Adam'
+LEARNING_RATE: 0.1
+WEIGHT_DECAY: 0
+BETAS: [0.9, 0.999]
+EPS: 0.00000001       # = 1e-8
+AMSGRAD: False
+
+#---Loss---
+# 'BPR'   Bayesian Personalized Ranking
+# (use neg examples around 5-10)
+LOSS_NAME: 'BPR'
+NUM_NEGATIVE_EXAMPLES: 5
+
+#---Model Selection---
+# 'HR', 'NDCG', 'HM', 'VL'
+MODEL_SELECTION: 'HM'
+
+#---Test---
+TEST_BATCH_SIZE: 32768
+NUM_TEST_EVALUATIONS: 25
