@@ -8,8 +8,7 @@ US court cases.
 
 - `data`: Contains  all the code for 
   - Data preprocessing
-  - Creation of the datastructures required for training, testing and 
-validation
+  - Creation of the datastructures required for training, validation and testing
   - Data analysis
 - `document_embedding`: Contains all the code for the HRNN document embedder
 - `pretrained_word_embedding`: contains all the code to generate the needed
