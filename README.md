@@ -1,7 +1,7 @@
 # Recommender System for US Court Cases
 
 This repository contains the prototype of a recommender system that can do
-content-based citation-recommendations based on the majority opinion of
+content-based citation recommendations based on the majority opinion of
 US court cases.
 
 ## Folder Structure
