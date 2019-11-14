@@ -10,7 +10,7 @@ US court cases.
   - Data preprocessing
   - Creation of the datastructures required for training, validation and testing
   - Data analysis
-- `document_embedding`: Contains all the code for the HRNN document embedder
+- `document_embedding`: Contains all the code for the hierarchical recurrant neural net (HRNN) document embedder
 - `pretrained_word_embedding`: contains all the code to generate the needed
 datastructures from the pre-trained GloVe word embedding
 - `ranking_models`: Contains the code for the `ItemPopularity` and 
